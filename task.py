@@ -27,16 +27,16 @@ async def on_message(message):
                     for Role in Person.roles:
                         if Role.id == 722863423934693447:
                             guildVillagers.append(Person)
-                toSend='Who do you want to put on trial?'
+                toSend='vote'+len(guildVillagers)+':Who do you want to put on trial?'
                 for i in guildVillagers:
-                    toSend+='\n'+str(guildVillagers.index(i)+1)+') `'+i.display_name+'`'
+                    toSend+='\n'+str(guildVillagers.index(i))+') `'+i.display_name+'`'
                 await message.channel.send(toSend)
     elif message.author==message.channel.guild.me and message.content.startswith("vote"):
-        for i in emojiIDs:
-            nextEmoji= await emojiGuild.fetch_emoji(i)
+        for i in range(int((' '+message.content:).split('vote')[1].split(':')[0])):
+            nextEmoji= makeInd(i)
             await message.add_reaction(nextEmoji)
         await message.add_reaction('\U0000274C')
-        await message.edit(content=('filler'+message.content).split("days: ",1)[1],allowed_mentions=discord.AllowedMentions(everyone=message.mention_everyone))
+        await message.edit(content=(message.content).split(":",1)[1])
     elif message.author==message.channel.guild.me and message.content.startswith("poll: "):
         await message.add_reaction('\U00002705')
         await message.add_reaction('\U0000274C')
