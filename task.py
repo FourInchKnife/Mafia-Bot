@@ -29,7 +29,8 @@ async def on_message(message):
                             guildVillagers.append(Person)
                 toSend='vote'+str(len(guildVillagers))+':Who do you want to put on trial?'
                 for i in guildVillagers:
-                    toSend+='\n'+str(guildVillagers.index(i))+') `'+i.display_name+'`'
+                    x='0123456789abcdefghijklmnopqrstuvwxyz'[guildVillagers.index(i)]
+                    toSend+='\n'+x+') `'+i.display_name+'`'
                 await message.channel.send(toSend)
             elif params[0]=='kill':
                 await message.channel.send('kill: Do you want to kill '+params[1]+'?')
