@@ -3,7 +3,11 @@ import discord
 import shlex
 
 def makeInd(number):
-    maked=eval('"\\U0000003'+str(number)+'"')
+    if number > 9:
+        num=0
+    else:
+        num = round(abs(number))
+    maked=eval('"\\U0000003'+str(num)+'"')
     return maked
 client = discord.Client()
 
@@ -13,7 +17,6 @@ async def on_ready():
     await client.change_presence(activity=discord.Game("!vote and !kill"))
 @client.event
 async def on_message(message):
-    numbers
     if message.content.startswith('!'):
         cmd=message.content[1:]
         params=cmd.split(" ",1)[:]
