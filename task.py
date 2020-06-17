@@ -32,7 +32,7 @@ async def on_message(message):
                     toSend+='\n'+str(guildVillagers.index(i))+') `'+i.display_name+'`'
                 await message.channel.send(toSend)
     elif message.author==message.channel.guild.me and message.content.startswith("vote"):
-        for i in range(int((' '+message.content:).split('vote')[1].split(':')[0])):
+        for i in range(int((' '+message.content).split('vote')[1].split(':')[0])):
             nextEmoji= makeInd(i)
             await message.add_reaction(nextEmoji)
         await message.add_reaction('\U0000274C')
