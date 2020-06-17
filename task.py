@@ -33,7 +33,7 @@ async def on_message(message):
                 await message.channel.send(toSend)
     elif message.author==message.channel.guild.me and message.content.startswith("vote"):
         for i in range(int((' '+message.content).split('vote')[1].split(':')[0])):
-            nextEmoji= ('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣')[i]
+            nextEmoji= ('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯','🇰','🇱','🇲','🇳','🇴','🇵','🇶','🇷','🇸','🇹','🇺','🇻','🇼','🇽','🇾','🇿')[i]
             await message.add_reaction(nextEmoji)
         await message.edit(content=(message.content).split(":",1)[1])
     elif message.author==message.channel.guild.me and message.content.startswith("poll: "):
