@@ -34,6 +34,7 @@ async def on_message(message):
     elif message.author==message.channel.guild.me and message.content.startswith("vote"):
         for i in range(int((' '+message.content).split('vote')[1].split(':')[0])):
             nextEmoji= makeInd(i)
+            print(nextEmoji)
             await message.add_reaction(nextEmoji)
         await message.add_reaction('\U0000274C')
         await message.edit(content=(message.content).split(":",1)[1])
