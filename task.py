@@ -27,7 +27,7 @@ async def on_message(message):
                     for Role in Person.roles:
                         if Role.id == 722863423934693447:
                             guildVillagers.append(Person)
-                toSend='vote'+len(guildVillagers)+':Who do you want to put on trial?'
+                toSend='vote'+str(len(guildVillagers))+':Who do you want to put on trial?'
                 for i in guildVillagers:
                     toSend+='\n'+str(guildVillagers.index(i))+') `'+i.display_name+'`'
                 await message.channel.send(toSend)
