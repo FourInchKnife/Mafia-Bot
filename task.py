@@ -32,7 +32,7 @@ async def on_message(message):
                     toSend+='\n'+str(guildVillagers.index(i))+') `'+i.display_name+'`'
                 await message.channel.send(toSend)
             elif params[0]=='kill':
-                await message.content.send('kill: Do you want to kill `'+params[1]+'`?')
+                await message.channel.send('kill: Do you want to kill `'+params[1]+'`?')
     elif message.author==message.channel.guild.me and message.content.startswith("vote"):
         for i in range(int((' '+message.content).split('vote')[1].split(':')[0])):
             nextEmoji= ('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯','🇰','🇱','🇲','🇳','🇴','🇵','🇶','🇷','🇸','🇹','🇺','🇻','🇼','🇽','🇾','🇿')[i]
