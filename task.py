@@ -1,10 +1,11 @@
 from os import environ
 from discord.ext import commands
-bot = commands.Bot(command_prefix='!',owner_id=600130839870963725)
+from discord import CustomActivity
+bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=CustomActivity(name='Watching for "!vote" and "!kill <name>"'))
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
-    #presence here later
+    bot.
 @bot.command()
 async def vote(ctx):
     with ctx.channel.typing():
