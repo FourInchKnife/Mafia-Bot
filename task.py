@@ -9,13 +9,13 @@ def makeInd(number):
         num = round(abs(number))
     maked=eval('"\\U0000003'+str(num)+'"')
     return maked
-client = discord.Client()
+bot = discord.Client()
 
-@client.event
+@bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game("!vote and !kill"))
-@client.event
+@bot.event
 async def on_message(message):
     if message.content.startswith('!'):
         cmd=message.content[1:]
@@ -43,4 +43,4 @@ bot_token=environ.get('BOT_TOKEN',None)
 if not bot_token:
     bot_token=input('What is your bot token?')
     print('\n'*100)
-client.run(bot_token)
+bot.run(bot_token)
