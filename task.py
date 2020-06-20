@@ -35,7 +35,7 @@ async def on_message(message):
                 for i in range(len(guildVillagers)):
                     await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
             elif params[0]=='kill':
-                sentMessage=await message.channel.send('kill: Do you want to kill '+params[1]+'?')
+                sentMessage=await message.channel.send('Do you want to kill '+params[1]+'?')
                 await sentMessage.add_reaction('\U00002705')
                 await sentMessage.add_reaction('\U0000274C')
 
