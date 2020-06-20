@@ -1,7 +1,5 @@
 from os import environ
 import discord
-import shlex
-
 def makeInd(number):
     if number > 9:
         num=0
@@ -10,7 +8,6 @@ def makeInd(number):
     maked=eval('"\\U0000003'+str(num)+'"')
     return maked
 bot = discord.Client()
-
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
