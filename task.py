@@ -33,17 +33,12 @@ async def on_message(message):
                     toSend+='\n'+x+') `'+i.display_name+'`'
                 sentMessage=await message.channel.send(toSend)
                 print(sentMessage.channel.name,sentMessage.author.display_name,sentMessage.content)
+                for i in len(guildVillagers):
+                    await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
             elif params[0]=='kill':
-                await message.channel.send('kill: Do you want to kill '+params[1]+'?')
-    elif message.author==message.channel.guild.me and message.content.startswith("vote"):
-        for i in range(int((' '+message.content).split('vote')[1].split(':')[0])):
-            nextEmoji= ('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i]
-            await message.add_reaction(nextEmoji)
-        await message.edit(content=(message.content).split(":",1)[1])
-    elif message.author==message.channel.guild.me and message.content.startswith("kill: "):
-        await message.add_reaction('\U00002705')
-        await message.add_reaction('\U0000274C')
-        await message.edit(content=('filler'+message.content).split("kill: ",1)[1],allowed_mentions=discord.AllowedMentions(everyone=message.mention_everyone))
+                sentMessage=await message.channel.send('kill: Do you want to kill '+params[1]+'?')
+                await sentMessage.add_reaction('\U00002705')
+                await sentMessage.add_reaction('\U0000274C')
 
 bot_token=environ.get('BOT_TOKEN',None)
 if not bot_token:
