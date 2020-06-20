@@ -21,8 +21,12 @@ async def on_message(message):
                 for i in guildVillagers:
                     x='0123456789abcdefghij'[guildVillagers.index(i)]
                     toSend+='\n'+x+') `'+i.display_name+'`'
+                aliveMention='"Alive"'
                 if len(guildVillagers)==0:
-                    toSend='There is no one to put on trial! Try giving some people the "Alive" role to get started.'
+                    for i in message.channel.guild.roles:
+                        if i.name=="Alive":
+                            aliveMention=i.mention
+                    toSend='There is no one to put on trial! Try giving some people the {} role to get started.'.format(aliveMention)
                 sentMessage=await message.channel.send(toSend)
                 for i in range(len(guildVillagers)):
                     await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
