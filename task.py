@@ -1,12 +1,5 @@
 from os import environ
 import discord
-def makeInd(number):
-    if number > 9:
-        num=0
-    else:
-        num = round(abs(number))
-    maked=eval('"\\U0000003'+str(num)+'"')
-    return maked
 bot = discord.Client()
 @bot.event
 async def on_ready():
