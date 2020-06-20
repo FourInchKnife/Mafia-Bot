@@ -27,13 +27,12 @@ async def on_message(message):
                     for Role in Person.roles:
                         if Role.id == 722863423934693447:
                             guildVillagers.append(Person)
-                toSend='vote'+str(len(guildVillagers))+':Who do you want to put on trial?'
+                toSend='Who do you want to put on trial?'
                 for i in guildVillagers:
                     x='0123456789abcdefghij'[guildVillagers.index(i)]
                     toSend+='\n'+x+') `'+i.display_name+'`'
                 sentMessage=await message.channel.send(toSend)
-                print(sentMessage.channel.name,sentMessage.author.display_name,sentMessage.content)
-                for i in len(guildVillagers):
+                for i in range(len(guildVillagers)):
                     await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
             elif params[0]=='kill':
                 sentMessage=await message.channel.send('kill: Do you want to kill '+params[1]+'?')
