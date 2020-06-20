@@ -7,21 +7,22 @@ async def on_ready():
     #presence here later
 @bot.command()
 async def vote(ctx):
-    guildVillagers=[]
-    for Person in ctx.guild.members:
-        for Role in Person.roles:
-            if Role.name == 'Alive':
+    with ctx.channel.typing():
+        guildVillagers=[]
+        for Person in ctx.guild.members:
+            for Role in Person.roles:
+                if Role.name == 'Alive':
                     guildVillagers.append(Person)
-    toSend='Who do you want to put on trial?'
-    for i in guildVillagers:
-        x='0123456789abcdefghij'[guildVillagers.index(i)]
-        toSend+='\n'+x+') `'+i.display_name+'`'
-    aliveMention='"Alive"'
-    if len(guildVillagers)==0:
-        for i in ctx.guild.roles:
-            if i.name=="Alive":
-                aliveMention=i.mention
-        toSend='There is no one to put on trial! Try giving some people the {} role to get started.'.format(aliveMention)
+        toSend='Who do you want to put on trial?'
+        for i in guildVillagers:
+            x='0123456789abcdefghij'[guildVillagers.index(i)]
+            toSend+='\n'+x+') `'+i.display_name+'`'
+        aliveMention='"Alive"'
+        if len(guildVillagers)==0:
+            for i in ctx.guild.roles:
+                if i.name=="Alive":
+                    aliveMention=i.mention
+            toSend='There is no one to put on trial! Try giving some people the {} role to get started.'.format(aliveMention)
     sentMessage=await ctx.send(toSend)
     for i in range(len(guildVillagers)):
         await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
