@@ -1,7 +1,7 @@
 from os import environ
 from discord.ext import commands
-from discord import CustomActivity
-bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=CustomActivity(name='Watching for "!vote" and "!kill <name>"'))
+from discord import Activity, ActivityType.listening
+bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Activity(name='"!vote" and "!kill <name>"',type=ActivityType.listening))
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
