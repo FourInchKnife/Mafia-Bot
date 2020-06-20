@@ -3,7 +3,7 @@ import discord
 bot = discord.Client()
 @bot.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('We have logged in as {}'.format(bot.user))
     await client.change_presence(activity=discord.Game("!vote and !kill"))
 @bot.event
 async def on_message(message):
