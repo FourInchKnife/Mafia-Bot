@@ -1,6 +1,6 @@
 from os import environ
 from discord.ext import commands
-from discord import Activity, ActivityType.listening
+from discord import Activity, ActivityType
 bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Activity(name='"!vote" and "!kill <name>"',type=ActivityType.listening))
 @bot.event
 async def on_ready():
