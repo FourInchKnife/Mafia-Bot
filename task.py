@@ -4,7 +4,7 @@ bot = discord.Client()
 @bot.event
 async def on_ready():
     print('We have logged in as {}'.format(bot.user))
-    await client.change_presence(activity=discord.Game("!vote and !kill"))
+    await bot.change_presence(activity=discord.Game("!vote and !kill"))
 @bot.event
 async def on_message(message):
     if message.content.startswith('!'):
