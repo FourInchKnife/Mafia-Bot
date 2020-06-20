@@ -5,7 +5,6 @@ bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Custo
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
-    bot.
 @bot.command()
 async def vote(ctx):
     with ctx.channel.typing():
