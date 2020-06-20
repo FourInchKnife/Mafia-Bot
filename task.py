@@ -15,7 +15,7 @@ async def on_message(message):
                 guildVillagers=[]
                 for Person in message.channel.guild.members:
                     for Role in Person.roles:
-                        if Role.id == 722863423934693447:
+                        if Role.name == 'Alive':
                             guildVillagers.append(Person)
                 toSend='Who do you want to put on trial?'
                 for i in guildVillagers:
