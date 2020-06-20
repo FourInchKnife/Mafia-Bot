@@ -26,7 +26,7 @@ async def vote(ctx):
     for i in range(len(guildVillagers)):
         await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
 @bot.command()
-async def kill(ctx,arg):
+async def kill(ctx,*,arg):
     sentMessage=await ctx.send('Do you want to kill `'+arg+'`?')
     await sentMessage.add_reaction('\U00002705')
     await sentMessage.add_reaction('\U0000274C')
