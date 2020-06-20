@@ -31,7 +31,8 @@ async def on_message(message):
                 for i in guildVillagers:
                     x='0123456789abcdefghij'[guildVillagers.index(i)]
                     toSend+='\n'+x+') `'+i.display_name+'`'
-                await message.channel.send(toSend)
+                sentMessage=await message.channel.send(toSend)
+                print(sentMessage.channel.name,sentMessage.author.display_name,sentMessage.content)
             elif params[0]=='kill':
                 await message.channel.send('kill: Do you want to kill '+params[1]+'?')
     elif message.author==message.channel.guild.me and message.content.startswith("vote"):
