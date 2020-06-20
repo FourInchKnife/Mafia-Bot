@@ -5,7 +5,7 @@ bot = commands.Bot(command_prefix='!',owner_id=600130839870963725)
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
     #presence here later
-@bot.command
+@bot.command()
 async def vote(ctx):
     guildVillagers=[]
     for Person in ctx.guild.members:
@@ -25,7 +25,7 @@ async def vote(ctx):
     sentMessage=await ctx.send(toSend)
     for i in range(len(guildVillagers)):
         await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
-@bot.command
+@bot.command()
 async def kill(ctx,arg):
     sentMessage=await ctx.send('Do you want to kill '+arg+'?')
     await sentMessage.add_reaction('\U00002705')
