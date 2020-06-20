@@ -30,6 +30,9 @@ async def kill(ctx,arg):
     sentMessage=await ctx.send('Do you want to kill `'+arg+'`?')
     await sentMessage.add_reaction('\U00002705')
     await sentMessage.add_reaction('\U0000274C')
+@bot.event
+async def on_command_error(context,exception):
+    await context.send("Error: ```{}```".format(str(exception)))
 bot_token=environ.get('BOT_TOKEN',None)
 if not bot_token:
     bot_token=input('What is your bot token?')
