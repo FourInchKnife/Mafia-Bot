@@ -1,8 +1,8 @@
 from os import environ
 from discord.ext import commands
-from discord import Activity, ActivityType
+from discord import Game
 import datetime 
-bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Activity(name='Mafia',type=ActivityType.playing,state="!vote and !kill <name>",start=datetime.datetime.now()))
+bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Game(name='Mafia,"!vote" and "!kill <name>"',start=datetime.datetime.now()))
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
