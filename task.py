@@ -12,6 +12,9 @@ async def on_ready():
     print('Logged in as {}'.format(bot.user))
 @bot.command()
 async def vote(ctx):
+    if ctx.guild==None:
+        ctx.send("These commands don't work in DMs. Try this again on a server.")
+        return
     with ctx.channel.typing():
         guildVillagers=[]
         for Person in ctx.guild.members:
