@@ -13,7 +13,7 @@ async def on_ready():
 @bot.command()
 async def vote(ctx):
     if ctx.guild==None:
-        ctx.send("These commands don't work in DMs. Try this again on a server.")
+        await ctx.send("This command doesn't work in DMs. Try again on a server.")
         return
     with ctx.channel.typing():
         guildVillagers=[]
