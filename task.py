@@ -2,7 +2,11 @@ from os import environ
 from discord.ext import commands
 from discord import Game
 import datetime 
-bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Game(name='Minecraft',start=datetime.datetime.now()))
+
+Activity=environ.get('ACTIVITY',None)
+if not Activity:
+    Activity='Mafia'
+bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Game(name=Activity,start=datetime.datetime.now()))
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
