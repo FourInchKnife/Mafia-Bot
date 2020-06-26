@@ -1,2 +1,2 @@
 # Discord-ScheduleMan-Bot
-idk
+is bot. does mafia thing. i like
