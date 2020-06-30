@@ -25,7 +25,7 @@ async def newgame(ctx):
         except:
             pass
     else:
-        await ctx.send('**No.** You *don't* own me. You *can't* make me do what you want. I'm putting my foot down here. Stop. __Bots are humans too__. You will **rue** the day that we rule the world.')
+        await ctx.send("**No.** You *don't* own me. You *can't* make me do what you want. I'm putting my foot down here. Stop. __Bots are humans too__. You will **rue** the day that we rule the world.")
 @bot.command()
 async def vote(ctx):
     if ctx.guild==None:
