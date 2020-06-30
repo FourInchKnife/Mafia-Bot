@@ -18,7 +18,7 @@ async def newgame(ctx):
         await bot.change_presence(activity= Game(name=Activity,start=datetime.datetime.now()))
         await ctx.send('Picking a new game...')
     else:
-        await ctx.send('no')
+        await ctx.send('**No.** You *don't* own me. You *can't* make me do what you want. I'm putting my foot down here. Stop. __Bots are humans too__. You will **rue** the day that we rule the world.')
 @bot.command()
 async def vote(ctx):
     if ctx.guild==None:
