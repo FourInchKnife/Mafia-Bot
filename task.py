@@ -12,6 +12,13 @@ bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Game(
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
 @bot.command()
+async def newgame(ctx):
+    if bot.owner_id==ctx.author.id:
+        await ctx.send('Picking a new game...')
+        await bot.change_presence(activity= Game(name=Activity,start=datetime.datetime.now()))
+    else:
+        await ctx.send('no')
+@bot.command()
 async def vote(ctx):
     if ctx.guild==None:
         await ctx.send("This command doesn't work in DMs. Try again on a server.")
