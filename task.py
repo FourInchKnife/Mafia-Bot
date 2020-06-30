@@ -14,8 +14,8 @@ async def on_ready():
 @bot.command()
 async def newgame(ctx):
     if bot.owner_id==ctx.author.id:
-        await ctx.send('Picking a new game...')
         await bot.change_presence(activity= Game(name=Activity,start=datetime.datetime.now()))
+        await ctx.send('Picking a new game...')
     else:
         await ctx.send('no')
 @bot.command()
