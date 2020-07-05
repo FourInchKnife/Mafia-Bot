@@ -60,7 +60,7 @@ async def kill(ctx,*,arg):
     await sentMessage.add_reaction('\U0000274C')
 @bot.event
 async def on_command_error(context,exception):
-    if type(exception)!=discord.ext.commands.errors.CommandNotFound:
+    if type(exception)!=commands.errors.CommandNotFound:
         await context.send("Error: ```{0}```\nType:```{1}```".format(str(exception),type(exception)))
 bot_token=environ.get('BOT_TOKEN',None)
 if not bot_token:
