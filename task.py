@@ -50,9 +50,9 @@ async def vote(ctx):
                 if i.name=="Alive":
                     aliveMention=i.mention
             toSend='There is no one to put on trial! Try giving some people the {} role to get started.'.format(aliveMention)
-    sentMessage=await ctx.send(toSend)
-    for i in range(len(guildVillagers)):
-        await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
+        sentMessage=await ctx.send(toSend)
+        for i in range(len(guildVillagers)):
+            await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
 @bot.command()
 async def kill(ctx,*,arg):
     sentMessage=await ctx.send('Do you want to kill `'+arg+'`?')
