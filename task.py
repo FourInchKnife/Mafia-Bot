@@ -36,7 +36,7 @@ async def vote(ctx):
         return
     with ctx.channel.typing():
         guildVillagers=[]
-        for Person in ctx.guild.members:
+        for Person in ctx.channel.members:
             for Role in Person.roles:
                 if Role.name == 'Alive':
                     guildVillagers.append(Person)
