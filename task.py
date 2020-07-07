@@ -54,7 +54,7 @@ async def vote(ctx):
 @bot.command()
 async def kill(ctx,*,arg):
     roll=randint(1,20)
-    print(roll,end=", ")
+    print(roll)
     if arg=='me' and roll==1:
         await ctx.send("Trust me {}. We all want to.".format(ctx.author.mention),allowed_mentions=AllowedMentions(users=False))
         await ctx.message.add_reaction('\U00002705')
