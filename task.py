@@ -1,6 +1,6 @@
 from os import environ
 from discord.ext import commands
-from discord import Game
+from discord import Game,AllowedMentions
 from random import choice
 import datetime 
 
@@ -55,9 +55,13 @@ async def vote(ctx):
             await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
 @bot.command()
 async def kill(ctx,*,arg):
-    sentMessage=await ctx.send('Do you want to kill `'+arg+'`?')
-    await sentMessage.add_reaction('\U00002705')
-    await sentMessage.add_reaction('\U0000274C')
+    if arg=='me':
+        await ctx.send("Trust me {}. We all want to.".format(ctx.author.mention),allowed_mentions=AllowedMentions(users=False))
+        await ctx.message.add_reaction('\U00002705')
+    else:
+        sentMessage=await ctx.send('Do you want to kill `'+arg+'`?')
+        await sentMessage.add_reaction('\U00002705')
+        await sentMessage.add_reaction('\U0000274C')
 @bot.event
 async def on_command_error(context,exception):
     if type(exception)!=commands.errors.CommandNotFound:
