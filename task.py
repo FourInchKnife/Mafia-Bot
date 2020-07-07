@@ -53,7 +53,9 @@ async def vote(ctx):
             await sentMessage.add_reaction(('0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯')[i])
 @bot.command()
 async def kill(ctx,*,arg):
-    if arg=='me' and randint(1,20)==1:
+    roll=randint(1,20)
+    print(roll,end=", ")
+    if arg=='me' and roll==1:
         await ctx.send("Trust me {}. We all want to.".format(ctx.author.mention),allowed_mentions=AllowedMentions(users=False))
         await ctx.message.add_reaction('\U00002705')
         print(ctx.author.display_name,"rolled a nat 1 on their charisma check...")
