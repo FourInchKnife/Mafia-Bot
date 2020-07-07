@@ -20,7 +20,7 @@ async def newgame(ctx,*,arg=""):
             await ctx.send('Picking a new game...')
         except:
             pass
-        await bot.change_presence(activity= Game(name=Activity,start=datetime.datetime.now()))
+        await bot.change_presence(activity= Game(name=Activity))
         try:
             await ctx.send('Chose "{}"'.format(Activity))
         except:
