@@ -9,7 +9,7 @@ bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Game(
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
-bot.listen()
+@bot.listen()
 async def when_mentioned(message):
     print("mentioned!")
     await bot.process_commands("!"+message.split(" ",1)[1])
