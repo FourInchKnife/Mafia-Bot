@@ -11,6 +11,7 @@ async def on_ready():
     print('Logged in as {}'.format(bot.user))
 bot.listen()
 async def when_mentioned(message):
+    print("mentioned!")
     await bot.process_commands("!"+message.split(" ",1)[1])
 @bot.command()
 async def newgame(ctx,*,arg=""):
