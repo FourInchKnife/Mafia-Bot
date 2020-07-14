@@ -9,9 +9,9 @@ bot = commands.Bot(command_prefix='!',owner_id=600130839870963725,activity=Game(
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
+bot.listen()
 async def when_mentioned(message):
     await bot.process_commands("!"+message.split(" ",1)[1])
-bot.add_listener(when_mentioned)
 @bot.command()
 async def newgame(ctx,*,arg=""):
     if bot.owner_id==ctx.author.id:
