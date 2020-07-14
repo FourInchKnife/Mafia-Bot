@@ -67,7 +67,7 @@ async def kill(ctx,*,arg):
 @bot.event
 async def on_command_error(context,exception):
     if type(exception)!=commands.errors.CommandNotFound:
-        await context.send("Error: ```{0}```\nType:```{1}```".format(str(exception),type(exception)))
+        await context.send("Error: ```{0}```".format(str(exception)))
 bot_token=environ.get('BOT_TOKEN',None)
 if not bot_token:
     bot_token=input('What is your bot token?')
