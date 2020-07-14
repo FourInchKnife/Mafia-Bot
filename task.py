@@ -9,7 +9,6 @@ bot = commands.Bot(command_prefix=commands.when_mentioned_or('!'),owner_id=60013
 @bot.event
 async def on_ready():
     print('Logged in as {}'.format(bot.user))
-@bot.listen()
 @bot.command()
 async def newgame(ctx,*,arg=""):
     if bot.owner_id==ctx.author.id:
